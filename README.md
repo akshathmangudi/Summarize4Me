@@ -12,3 +12,6 @@ Extractive Summarization involves four main steps:
 4. Summary generation
 
 All these steps will be explained in detail in this repository. 
+
+## License
+This repository is licensed under the MIT License. See the LICENSE file for details.
