@@ -2,7 +2,8 @@ from Summarize4Me.config.configuration import ConfigManager
 from Summarize4Me.components.data_ingestion import DataIngestion
 from Summarize4Me.logging import logger
 
-class TrainingPipeline:
+
+class IngestionTrainingPipeline:
     def __init__(self):
         pass
 

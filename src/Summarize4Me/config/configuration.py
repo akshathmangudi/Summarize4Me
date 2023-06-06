@@ -1,7 +1,6 @@
 from Summarize4Me.constants import *
 from Summarize4Me.utils.common import read_yaml, create_dirs
-from Summarize4Me.entity import DataIngestionConfig
-
+from Summarize4Me.entity import DataIngestionConfig, DataValidationConfig
 
 class ConfigManager:
     def __init__(
@@ -27,3 +26,17 @@ class ConfigManager:
         )
 
         return data_ingestion
+
+    def get_validation(self) -> DataValidationConfig:
+        config = self.config.data_validation
+
+        create_dirs([config.root_dir])
+
+        data_validation_string = DataValidationConfig(
+            root_dir=config.root_dir,
+            status_file=config.status_file,
+            required_files=config.required_files
+        )
+
+        return data_validation_string
+    
