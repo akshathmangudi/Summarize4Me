@@ -1,6 +1,8 @@
 from Summarize4Me.constants import *
 from Summarize4Me.utils.common import read_yaml, create_dirs
-from Summarize4Me.entity import DataIngestionConfig, DataValidationConfig
+from Summarize4Me.entity import DataIngestionConfig, \
+                                DataValidationConfig, DataTransformationConfig
+
 
 class ConfigManager:
     def __init__(
@@ -39,4 +41,15 @@ class ConfigManager:
         )
 
         return data_validation_string
-    
+
+    def data_trans_config(self) -> DataTransformationConfig:
+        config = self.config.data_transformation
+        create_dirs([config.root_dir])
+
+        data_trans_config = DataTransformationConfig(
+            root_dir=config.root_dir,
+            data_path=config.data_path,
+            tokenizer_path=config.tokenizer_path
+        )
+
+        return data_trans_config
