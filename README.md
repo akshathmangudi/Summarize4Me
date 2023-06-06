@@ -25,7 +25,14 @@ Extractive Summarization involves four main steps:
 
 All these steps will be explained in detail in this repository. 
 
-## 
+## Requirements
+### Prerequisites
+### Creating virtualvenv
+### Installing dependencies
+
+## Running program
+
+## Future action
 
 ## License
 This repository is licensed under the MIT License. See the LICENSE file for details.
