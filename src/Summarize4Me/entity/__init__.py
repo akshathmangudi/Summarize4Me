@@ -22,3 +22,19 @@ class DataTransformationConfig:
     root_dir: Path
     data_path: Path
     tokenizer_path: Path
+
+@dataclass(frozen=True)
+class ModelTrainerConfig:
+    root_dir: Path
+    data_path: Path
+    pretrained_model: Path
+    num_epochs: int
+    warmup_steps: int
+    per_device_train_batch_size: int
+    weight_decay: float
+    logging_steps: int
+    evaluation_strategy: str
+    evaluation_steps: int
+    save_steps: float
+    accumulation_steps: int
+#%%

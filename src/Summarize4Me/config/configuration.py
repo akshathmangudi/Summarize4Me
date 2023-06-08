@@ -1,7 +1,9 @@
 from Summarize4Me.constants import *
 from Summarize4Me.utils.common import read_yaml, create_dirs
 from Summarize4Me.entity import DataIngestionConfig, \
-                                DataValidationConfig, DataTransformationConfig
+                                DataValidationConfig, \
+                                DataTransformationConfig, \
+                                ModelTrainerConfig
 
 
 class ConfigManager:
@@ -53,3 +55,26 @@ class ConfigManager:
         )
 
         return data_trans_config
+
+    def get_model_config(self) -> ModelTrainerConfig:
+        config = self.config.model_trainer
+        params = self.params.TrainingArguments
+
+        create_dirs([config.root_dir])
+
+        model_trainer_config = ModelTrainerConfig(
+            root_dir=config.root_dir,
+            data_path=config.data_path,
+            pretrained_model=config.pretrained_model,
+            num_epochs=params.num_epochs,
+            warmup_steps=params.warmup_steps,
+            per_device_train_batch_size=params.per_device_train_batch_size,
+            weight_decay=params.weight_decay,
+            logging_steps=params.logging_steps,
+            evaluation_strategy=params.evaluation_strategy,
+            evaluation_steps=params.evaluation_strategy,
+            save_steps=params.save_steps,
+            accumulation_steps=params.accumulation_steps
+        )
+
+        return model_trainer_config
