@@ -11,7 +11,7 @@ class ModelTrainer:
         self.config = config
 
     def train(self):
-        device = "cpu"
+        device = "gpu" if torch.cuda.is_available() else "cpu"
         tokenizer = AutoTokenizer.from_pretrained(self.config.pretrained_model)
         pegasus = AutoModelForSeq2SeqLM.from_pretrained(self.config.pretrained_model).to(device)
         seq2seq_collator = DataCollatorForSeq2Seq(tokenizer, model=pegasus)
