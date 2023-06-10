@@ -7,8 +7,8 @@
   * <a href="https://github.com/akshathmangudi/Summarize4Me#creating-virtualvenv">Creating virtualenv</a>
   * <a href="https://github.com/akshathmangudi/Summarize4Me#installing-dependencies">Installing dependencies</a>
 * <a href="https://github.com/akshathmangudi/Summarize4Me#running-the-program">Running the program</a>
-* <a href="https://github.com/akshathmangudi/Summarize4Me#next-steps">Next Steps</a>
-* <a href="https://github.com/akshathmangudi/Summarize4Me#license">License</a>
+* <a href="https://github.com/akshathmangudi/Summarize4Me#next-steps">Next steps</a>
+* <a href="https://github.com/akshathmangudi/Summarize4Me#license">Licensing</a>
 
 ## Overview
 Extractive Summarization is a Natural Language Processing (NLP) technique which aims to summarize given text based on 
@@ -91,9 +91,9 @@ files and folders to be created for prediction. This does not require any parame
 "text" can be inputted ino the textbox and a summary will be generated based on the model training. A maximum of 
 2048 characters of text can be inputted and a summary upto 240 words will be generated. 
 
-## Next Steps
+## Next steps
 Future goals of this application is to deploy this using AWS. Thank you for checking out this project, and if 
 you encounter any problems, please email me: akshathmangudi@gmail.com
 
-## License
+## Licensing
 This repository is licensed under the MIT License. See the LICENSE file for details.
