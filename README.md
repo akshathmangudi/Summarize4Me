@@ -6,8 +6,8 @@
   * <a href="https://github.com/akshathmangudi/Summarize4Me#prerequisites">Prerequisites</a>
   * <a href="https://github.com/akshathmangudi/Summarize4Me#creating-virtualvenv">Creating virtualenv</a>
   * <a href="https://github.com/akshathmangudi/Summarize4Me#installing-dependencies">Installing dependencies</a>
-* Running the program
-* Next Steps
+* <a href="https://github.com/akshathmangudi/Summarize4Me#running-the-program">Running the program</a>
+* <a href="https://github.com/akshathmangudi/Summarize4Me#next-steps">Next Steps</a>
 * <a href="https://github.com/akshathmangudi/Summarize4Me#license">License</a>
 
 ## Overview
@@ -83,11 +83,11 @@ python app.py
 ``` 
 and you'll be redirected to a localhost:8080 page with two GET blocks and one POST block.
 
-![The website has a red box highlighted](lib/train.png)
+![The website has a red box highlighted](pic/train.png)
 The picture highlights a red box with the text "Try it out". This allows for the program to create the necessary 
 files and folders to be created for prediction. This does not require any parameters.
 ## Future action
-![The website showing the Test section](lib/test.png)
+![The website showing the Test section](pic/test.png)
 "text" can be inputted ino the textbox and a summary will be generated based on the model training. A maximum of 
 2048 characters of text can be inputted and a summary upto 240 words will be generated. 
 
