@@ -6,7 +6,7 @@
   * <a href="https://github.com/akshathmangudi/Summarize4Me#prerequisites">Prerequisites</a>
   * <a href="https://github.com/akshathmangudi/Summarize4Me#creating-virtualvenv">Creating virtualenv</a>
   * <a href="https://github.com/akshathmangudi/Summarize4Me#installing-dependencies">Installing dependencies</a>
-* Running
+* Running the program
 * Next Steps
 * <a href="https://github.com/akshathmangudi/Summarize4Me#license">License</a>
 
@@ -31,37 +31,46 @@ global environment of the system. Dependencies can be installed without interfer
 the same dependencies. This allows for downgrading to be hassle-free.
 
 Change into your desired directory and pass the following commands into your terminal: 
-'''
+'''python
 git clone https://github.com/akshathmangudi/Summarize4Me.git
 cd Summarize4Me/
 '''
 ### Creating virtualvenv
 For Python 3.6+ users: 
-'''python -m venv /path/to/virtualenv'''
-For activation of virtualenv: 
+'''python
+python -m venv /path/to/virtualenv
 '''
+For activation of virtualenv: 
+'''python
 bash/zsh: $ source <venv>/bin/activate
 fish: $ source <venv/bin/activate.fish
 cmd.exe: C:\> <venv>\Scripts\activate.bat
 PowerShell: PS C:\> <venv>\Scripts\activate.ps1
 '''
 For conda users, the following commands are to be sequentially passed into your terminal: 
-'''
+'''python
 conda -V
 conda update conda
 conda create -n <envname> python=x.x anaconda
 conda activate <envname>
 '''
 For deactivation: 
-'''conda deactivate'''
+'''python
+conda deactivate
+'''
 ### Installing dependencies
 There's two ways to install the dependencies required for this program. Either each dependency can be 
 installed manually (list is in requirements.txt) or a much shorter method is preferred: 
-'''pip install -r requirements.txt'''
-## Running program
+'''bash
+pip install -r requirements.txt
+'''
+## Running the program
 Running the program is very simple, after installation of the dependencies and creating the virtual environment, 
 you're ready to run the application. In your terminal, simple type: 
-'''python app.py''' and you'll be redirected to a localhost:8080 page with two GET blocks and one POST block.
+'''bash
+python app.py
+''' 
+and you'll be redirected to a localhost:8080 page with two GET blocks and one POST block.
 
 <img src="/home/Akshath/PycharmProjects/Summarize4Me/lib/train.png" alt="The website which has a red box highlighted">
 The picture highlights a red box with the text "Try it out". This allows for the program to create the necessary 
