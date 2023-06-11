@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 from pathlib import Path
 
+# Includes the entity information for our Config classes.
+
 
 @dataclass(frozen=True)
 class DataIngestionConfig:

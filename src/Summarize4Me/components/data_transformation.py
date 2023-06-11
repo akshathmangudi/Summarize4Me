@@ -6,13 +6,20 @@ from transformers import AutoTokenizer
 from datasets import load_dataset, load_from_disk
 
 
-
+# This class will be responsible for handling the data transformation
+# of the Pipeline
 class DataTransformation:
     def __init__(self, config: DataTransformationConfig):
         self.config=config
         self.tokenizer=AutoTokenizer.from_pretrained(config.tokenizer_path)
 
     def convert_to_features(self, batch):
+        """
+        This method will convert the text feeded to the method, and be converted as encodings/features.
+        Input encodings are the feeded text and target encodings are the summary from that conversion.
+
+        :param batch: The text feeded to the method.
+        """
         input_encodings=self.tokenizer(batch['dialogue'], max_length=1024, truncation=True)
 
         with self.tokenizer.as_target_tokenizer():
@@ -25,6 +32,9 @@ class DataTransformation:
         }
 
     def convert(self):
+        """
+        The transformed data is joined to the artifacts directory as a separate directory of its own.
+        """
         dataset_samsum = load_from_disk(self.config.data_path)
         dataset_samsum_pt = dataset_samsum.map(self.convert_to_features, batched=True)
         dataset_samsum_pt.save_to_disk(os.path.join(self.config.root_dir, "samsum_dataset"))

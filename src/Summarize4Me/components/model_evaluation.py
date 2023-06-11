@@ -5,11 +5,20 @@ import pandas
 from tqdm import tqdm
 from Summarize4Me.entity import ModelEvaluationConfig
 
+
+# This class is responsible for generating the model evaluation (rouge scores) and the proper metric
+# which will be helpful for hyperparameter tuning.
 class ModelEvaluation:
     def __init__(self, config: ModelEvaluationConfig):
         self.config = config
 
     def generate_batch_chunks(self, list_elements, batch_size):
+        """
+        This is responsible for generating chunks from the list of elements fed to the method.
+
+        :param list_elements: The total number of elements fed.
+        :param batch_size: Separate the list of elements by batch_size.
+        """
         for i in range(0, len(list_elements), batch_size):
             yield list_elements[i: i + batch_size]
 
@@ -17,6 +26,22 @@ class ModelEvaluation:
                          batch_size=16, device="cuda" if torch.cuda.is_available() else "cpu",
                          column_text="article",
                          column_summary="highlights"):
+
+        """
+        Responsible for calculating the model metric that will be used on model_trainer.py
+
+        :param dataset: The dataset itself that will be used for calculating the metric.
+        :param metric: The metric that will be used to evaluate the model, for example. For this program,
+        we will use the rouge metric.
+        :param model: The model that will be evaluated against the rouge metric.
+        :param tokenizer: Tokenization is the process of chopping up sentences into pieces/tokens which cannot be
+        divided further
+        :param batch_size: The batch size that will split the entire dataset into 16-group chunks
+        :param device: The device to be used by torch. (cpu/gpu)
+        :param column_text: The input feature that's fed in
+        :param column_summary: The output feature that will be received, which is a metric evaluation
+        :return: Returns a score in a tabular format when evaluated against 3-4 types of rouge metric.
+        """
 
         article_batches = list(self.generate_batch_chunks(dataset[column_text], batch_size))
         target_batches = list(self.generate_batch_chunks(dataset[column_summary], batch_size))
